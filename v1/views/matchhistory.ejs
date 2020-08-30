@@ -1,0 +1,153 @@
+<% include partials/header %>
+        <div class="container">
+            <div class="jumbotron padder">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h2 class=""><a href="/"><i class="material-icons">keyboard_backspace</i> Tillbaka</a></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Salthistorik för: <strong><%= matchInfo.accountData.name %></strong></h2>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="text-center">SummonerLevel: <strong><%= matchInfo.accountData.summonerLevel %></strong></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container my-content">
+                <div class="row my-padding">
+                    <div class="col-sm-1">
+                        <div class="">#</div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="">Champion</div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="">Build</div>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <div class="">Stats</div>
+                    </div>
+                    <div class="col-sm-1 text-center">
+                        <div class="">Resultat</div>
+                    </div>
+                </div>
+                <% matchInfo.matchResults.forEach(function(match) { %>
+                    <div class="my-wrapper">
+                        <div class="row <%= match.matchObj.result %> my-padding" data-toggle="collapse" data-target="#collapse<%= match.index %>">
+                                <div class="col-sm-1"><h3 class="my-line-height"><%= match.index + 1 %></h3></div>
+                                <div class="col-sm-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <img width="80" height="80" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/champion/<%= match.championObj.image.full%>">
+                                                    </div>
+                                                    <div class="row">
+                                                        <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/spell/<%= match.summonerSpells.spellOne.image.full %>">
+                                                        <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/spell/<%= match.summonerSpells.spellTwo.image.full %>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h3 class="my-line-height">
+                                                    <%= match.championObj.name %>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <% if(match.items.zero) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.zero.image.full%>">
+
+                                        <% } %>
+                                        <% if(match.items.one) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.one.image.full%>">
+
+                                        <% } %>
+                                        <% if(match.items.two) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.two.image.full%>">
+                                        <% } %>
+                                    </div>
+                                    <div class="row">
+                                        <% if(match.items.three) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.three.image.full%>">
+
+                                        <% } %>
+                                        <% if(match.items.four) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.four.image.full%>">
+
+                                        <% } %>
+                                        <% if(match.items.five) { %>
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.five.image.full%>">
+
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 text-center"><h3 class="my-line-height"><%= match.matchObj.stats.kills %>/<%= match.matchObj.stats.deaths %>/<%= match.matchObj.stats.assists %></h3></div>
+                                <div class="col-sm-1 text-center"><h3 class="my-line-height"><%= match.matchObj.result %></h3></div>
+                        </div>
+                        <div class="row collapse <%=match.matchObj.result%> my-collapse-div" id="collapse<%= match.index %>">
+                            <table class="table table-borderless table-striped my-table">
+                                <!-- <thead>
+                                    <tr>
+                                        <th class=""><h3>MER INFO:</h3></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                    </tr>
+                                </thead> -->
+                                <tbody>
+                                    <tr class="">
+                                        <td class="my-td"><p>largestKillingSpree: <%= match.matchObj.stats.largestKillingSpree %></p></td>
+                                        <td class="my-td"><p>largestMultiKill: <%= match.matchObj.stats.largestMultiKill %></p></td>
+                                        <td class="my-td"><p>killingSprees: <%= match.matchObj.stats.killingSprees %></p></td>
+                                        <td class="my-td"><p>longestTimeSpentLiving: <%= match.matchObj.stats.longestTimeSpentLiving %></p></td>
+                                        <td class="my-td"><p>Kills utan att dö: <%= match.matchObj.stats.largestKillingSpree %></p></td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-td"><p>doubleKills: <%= match.matchObj.stats.doubleKills %></p></td>
+                                        <td class="my-td"><p>tripleKills: <%= match.matchObj.stats.tripleKills %></p></td>
+                                        <td class="my-td"><p>quadraKills: <%= match.matchObj.stats.quadraKills %></p></td>
+                                        <td class="my-td"><p>pentaKills: <%= match.matchObj.stats.pentaKills %></p></td>
+                                        <td class="my-td"><p>unrealKills: <%= match.matchObj.stats.unrealKills %></p></td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-td"><p>doubleKills: <%= match.matchObj.stats.doubleKills %></p></td>
+                                        <td class="my-td"><p>tripleKills: <%= match.matchObj.stats.tripleKills %></p></td>
+                                        <td class="my-td"><p>quadraKills: <%= match.matchObj.stats.quadraKills %></p></td>
+                                        <td class="my-td"><p>pentaKills: <%= match.matchObj.stats.pentaKills %></p></td>
+                                        <td class="my-td"><p>unrealKills: <%= match.matchObj.stats.unrealKills %></p></td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-td"><p>doubleKills: <%= match.matchObj.stats.doubleKills %></p></td>
+                                        <td class="my-td"><p>tripleKills: <%= match.matchObj.stats.tripleKills %></p></td>
+                                        <td class="my-td"><p>quadraKills: <%= match.matchObj.stats.quadraKills %></p></td>
+                                        <td class="my-td"><p>pentaKills: <%= match.matchObj.stats.pentaKills %></p></td>
+                                        <td class="my-td"><p>unrealKills: <%= match.matchObj.stats.unrealKills %></p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var championName = "<%= matchInfo.matchResults[0].championObj.name %>";
+            championName = championName.replace(" ", "");
+        </script>
+        <script type="text/javascript">
+            var url = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + championName +"_0.jpg"
+            document.body.style.backgroundImage = "url(" + url + ")";
+            console.log(url);
+        </script>
+<% include partials/footer %>

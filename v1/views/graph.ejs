@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    var summonerName = "<%= matchInfo.accountData.name %>";
+    var realm = "<%= matchInfo.accountData.realm %>";
+</script>
+<% if(typeof matchInfo.matchResults[0].matchFrameData.skillOrder !== 'undefined') { %>
+<script type="text/javascript" src="/graph.js"></script>
+<% }  else { %>
+    <h1>You have not loaded matchFrameData</h1>
+<% }%>
+<div id="goldChartContainer" style="height: 370px; width: 100%;"></div>
+<div id="minionChartContainer" style="height: 370px; width: 100%;"></div>
+<div id="experienceChartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

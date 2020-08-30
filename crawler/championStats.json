@@ -1,0 +1,1013 @@
+{
+    "numOfMatches": 10189,
+    "champions": [
+        {
+            "name": "Aatrox",
+            "id": "266",
+            "wins": 505,
+            "losses": 497,
+            "winrate": 50
+        },
+        {
+            "name": "Ahri",
+            "id": "103",
+            "wins": 625,
+            "losses": 611,
+            "winrate": 50
+        },
+        {
+            "name": "Akali",
+            "id": "84",
+            "wins": 405,
+            "losses": 582,
+            "winrate": 41
+        },
+        {
+            "name": "Alistar",
+            "id": "12",
+            "wins": 213,
+            "losses": 203,
+            "winrate": 51
+        },
+        {
+            "name": "Amumu",
+            "id": "32",
+            "wins": 454,
+            "losses": 352,
+            "winrate": 56
+        },
+        {
+            "name": "Anivia",
+            "id": "34",
+            "wins": 148,
+            "losses": 137,
+            "winrate": 51
+        },
+        {
+            "name": "Annie",
+            "id": "1",
+            "wins": 211,
+            "losses": 190,
+            "winrate": 52
+        },
+        {
+            "name": "Ashe",
+            "id": "22",
+            "wins": 566,
+            "losses": 544,
+            "winrate": 50
+        },
+        {
+            "name": "AurelionSol",
+            "id": "136",
+            "wins": 46,
+            "losses": 58,
+            "winrate": 44
+        },
+        {
+            "name": "Azir",
+            "id": "268",
+            "wins": 115,
+            "losses": 131,
+            "winrate": 46
+        },
+        {
+            "name": "Bard",
+            "id": "432",
+            "wins": 196,
+            "losses": 206,
+            "winrate": 48
+        },
+        {
+            "name": "Blitzcrank",
+            "id": "53",
+            "wins": 434,
+            "losses": 430,
+            "winrate": 50
+        },
+        {
+            "name": "Brand",
+            "id": "63",
+            "wins": 396,
+            "losses": 380,
+            "winrate": 51
+        },
+        {
+            "name": "Braum",
+            "id": "201",
+            "wins": 204,
+            "losses": 235,
+            "winrate": 46
+        },
+        {
+            "name": "Caitlyn",
+            "id": "51",
+            "wins": 728,
+            "losses": 746,
+            "winrate": 49
+        },
+        {
+            "name": "Camille",
+            "id": "164",
+            "wins": 149,
+            "losses": 144,
+            "winrate": 50
+        },
+        {
+            "name": "Cassiopeia",
+            "id": "69",
+            "wins": 104,
+            "losses": 122,
+            "winrate": 46
+        },
+        {
+            "name": "Chogath",
+            "id": "31",
+            "wins": 230,
+            "losses": 226,
+            "winrate": 50
+        },
+        {
+            "name": "Corki",
+            "id": "42",
+            "wins": 157,
+            "losses": 143,
+            "winrate": 52
+        },
+        {
+            "name": "Darius",
+            "id": "122",
+            "wins": 539,
+            "losses": 581,
+            "winrate": 48
+        },
+        {
+            "name": "Diana",
+            "id": "131",
+            "wins": 289,
+            "losses": 289,
+            "winrate": 50
+        },
+        {
+            "name": "Draven",
+            "id": "119",
+            "wins": 453,
+            "losses": 456,
+            "winrate": 49
+        },
+        {
+            "name": "DrMundo",
+            "id": "36",
+            "wins": 162,
+            "losses": 161,
+            "winrate": 50
+        },
+        {
+            "name": "Ekko",
+            "id": "245",
+            "wins": 378,
+            "losses": 326,
+            "winrate": 53
+        },
+        {
+            "name": "Elise",
+            "id": "60",
+            "wins": 201,
+            "losses": 193,
+            "winrate": 51
+        },
+        {
+            "name": "Evelynn",
+            "id": "28",
+            "wins": 316,
+            "losses": 323,
+            "winrate": 49
+        },
+        {
+            "name": "Ezreal",
+            "id": "81",
+            "wins": 1038,
+            "losses": 1232,
+            "winrate": 45
+        },
+        {
+            "name": "Fiddlesticks",
+            "id": "9",
+            "wins": 251,
+            "losses": 234,
+            "winrate": 51
+        },
+        {
+            "name": "Fiora",
+            "id": "114",
+            "wins": 246,
+            "losses": 268,
+            "winrate": 47
+        },
+        {
+            "name": "Fizz",
+            "id": "105",
+            "wins": 313,
+            "losses": 290,
+            "winrate": 51
+        },
+        {
+            "name": "Galio",
+            "id": "3",
+            "wins": 144,
+            "losses": 165,
+            "winrate": 46
+        },
+        {
+            "name": "Gangplank",
+            "id": "41",
+            "wins": 204,
+            "losses": 194,
+            "winrate": 51
+        },
+        {
+            "name": "Garen",
+            "id": "86",
+            "wins": 517,
+            "losses": 439,
+            "winrate": 54
+        },
+        {
+            "name": "Gnar",
+            "id": "150",
+            "wins": 153,
+            "losses": 196,
+            "winrate": 43
+        },
+        {
+            "name": "Gragas",
+            "id": "79",
+            "wins": 140,
+            "losses": 181,
+            "winrate": 43
+        },
+        {
+            "name": "Graves",
+            "id": "104",
+            "wins": 173,
+            "losses": 154,
+            "winrate": 52
+        },
+        {
+            "name": "Hecarim",
+            "id": "120",
+            "wins": 408,
+            "losses": 410,
+            "winrate": 49
+        },
+        {
+            "name": "Heimerdinger",
+            "id": "74",
+            "wins": 161,
+            "losses": 137,
+            "winrate": 54
+        },
+        {
+            "name": "Illaoi",
+            "id": "420",
+            "wins": 262,
+            "losses": 234,
+            "winrate": 52
+        },
+        {
+            "name": "Irelia",
+            "id": "39",
+            "wins": 565,
+            "losses": 664,
+            "winrate": 45
+        },
+        {
+            "name": "Ivern",
+            "id": "427",
+            "wins": 81,
+            "losses": 74,
+            "winrate": 52
+        },
+        {
+            "name": "Janna",
+            "id": "40",
+            "wins": 365,
+            "losses": 347,
+            "winrate": 51
+        },
+        {
+            "name": "JarvanIV",
+            "id": "59",
+            "wins": 411,
+            "losses": 398,
+            "winrate": 50
+        },
+        {
+            "name": "Jax",
+            "id": "24",
+            "wins": 730,
+            "losses": 730,
+            "winrate": 50
+        },
+        {
+            "name": "Jayce",
+            "id": "126",
+            "wins": 164,
+            "losses": 179,
+            "winrate": 47
+        },
+        {
+            "name": "Jhin",
+            "id": "202",
+            "wins": 796,
+            "losses": 783,
+            "winrate": 50
+        },
+        {
+            "name": "Jinx",
+            "id": "222",
+            "wins": 954,
+            "losses": 863,
+            "winrate": 52
+        },
+        {
+            "name": "Kaisa",
+            "id": "145",
+            "wins": 1007,
+            "losses": 1115,
+            "winrate": 47
+        },
+        {
+            "name": "Kalista",
+            "id": "429",
+            "wins": 79,
+            "losses": 100,
+            "winrate": 44
+        },
+        {
+            "name": "Karma",
+            "id": "43",
+            "wins": 255,
+            "losses": 253,
+            "winrate": 50
+        },
+        {
+            "name": "Karthus",
+            "id": "30",
+            "wins": 221,
+            "losses": 234,
+            "winrate": 48
+        },
+        {
+            "name": "Kassadin",
+            "id": "38",
+            "wins": 139,
+            "losses": 160,
+            "winrate": 46
+        },
+        {
+            "name": "Katarina",
+            "id": "55",
+            "wins": 458,
+            "losses": 417,
+            "winrate": 52
+        },
+        {
+            "name": "Kayle",
+            "id": "10",
+            "wins": 264,
+            "losses": 283,
+            "winrate": 48
+        },
+        {
+            "name": "Kayn",
+            "id": "141",
+            "wins": 798,
+            "losses": 892,
+            "winrate": 47
+        },
+        {
+            "name": "Kennen",
+            "id": "85",
+            "wins": 168,
+            "losses": 163,
+            "winrate": 50
+        },
+        {
+            "name": "Khazix",
+            "id": "121",
+            "wins": 385,
+            "losses": 395,
+            "winrate": 49
+        },
+        {
+            "name": "Kindred",
+            "id": "203",
+            "wins": 168,
+            "losses": 194,
+            "winrate": 46
+        },
+        {
+            "name": "Kled",
+            "id": "240",
+            "wins": 103,
+            "losses": 95,
+            "winrate": 52
+        },
+        {
+            "name": "KogMaw",
+            "id": "96",
+            "wins": 102,
+            "losses": 105,
+            "winrate": 49
+        },
+        {
+            "name": "Leblanc",
+            "id": "7",
+            "wins": 231,
+            "losses": 308,
+            "winrate": 42
+        },
+        {
+            "name": "LeeSin",
+            "id": "64",
+            "wins": 710,
+            "losses": 774,
+            "winrate": 47
+        },
+        {
+            "name": "Leona",
+            "id": "89",
+            "wins": 393,
+            "losses": 429,
+            "winrate": 47
+        },
+        {
+            "name": "Lissandra",
+            "id": "127",
+            "wins": 114,
+            "losses": 111,
+            "winrate": 50
+        },
+        {
+            "name": "Lucian",
+            "id": "236",
+            "wins": 496,
+            "losses": 514,
+            "winrate": 49
+        },
+        {
+            "name": "Lulu",
+            "id": "117",
+            "wins": 325,
+            "losses": 326,
+            "winrate": 49
+        },
+        {
+            "name": "Lux",
+            "id": "99",
+            "wins": 1386,
+            "losses": 1276,
+            "winrate": 52
+        },
+        {
+            "name": "Malphite",
+            "id": "54",
+            "wins": 253,
+            "losses": 244,
+            "winrate": 50
+        },
+        {
+            "name": "Malzahar",
+            "id": "90",
+            "wins": 304,
+            "losses": 248,
+            "winrate": 55
+        },
+        {
+            "name": "Maokai",
+            "id": "57",
+            "wins": 95,
+            "losses": 99,
+            "winrate": 48
+        },
+        {
+            "name": "MasterYi",
+            "id": "11",
+            "wins": 781,
+            "losses": 702,
+            "winrate": 52
+        },
+        {
+            "name": "MissFortune",
+            "id": "21",
+            "wins": 660,
+            "losses": 622,
+            "winrate": 51
+        },
+        {
+            "name": "MonkeyKing",
+            "id": "62",
+            "wins": 205,
+            "losses": 174,
+            "winrate": 54
+        },
+        {
+            "name": "Mordekaiser",
+            "id": "82",
+            "wins": 120,
+            "losses": 146,
+            "winrate": 45
+        },
+        {
+            "name": "Morgana",
+            "id": "25",
+            "wins": 802,
+            "losses": 837,
+            "winrate": 48
+        },
+        {
+            "name": "Nami",
+            "id": "267",
+            "wins": 448,
+            "losses": 361,
+            "winrate": 55
+        },
+        {
+            "name": "Nasus",
+            "id": "75",
+            "wins": 604,
+            "losses": 533,
+            "winrate": 53
+        },
+        {
+            "name": "Nautilus",
+            "id": "111",
+            "wins": 625,
+            "losses": 618,
+            "winrate": 50
+        },
+        {
+            "name": "Neeko",
+            "id": "518",
+            "wins": 496,
+            "losses": 433,
+            "winrate": 53
+        },
+        {
+            "name": "Nidalee",
+            "id": "76",
+            "wins": 141,
+            "losses": 159,
+            "winrate": 47
+        },
+        {
+            "name": "Nocturne",
+            "id": "56",
+            "wins": 206,
+            "losses": 192,
+            "winrate": 51
+        },
+        {
+            "name": "Nunu",
+            "id": "20",
+            "wins": 225,
+            "losses": 190,
+            "winrate": 54
+        },
+        {
+            "name": "Olaf",
+            "id": "2",
+            "wins": 172,
+            "losses": 189,
+            "winrate": 47
+        },
+        {
+            "name": "Orianna",
+            "id": "61",
+            "wins": 273,
+            "losses": 241,
+            "winrate": 53
+        },
+        {
+            "name": "Ornn",
+            "id": "516",
+            "wins": 113,
+            "losses": 110,
+            "winrate": 50
+        },
+        {
+            "name": "Pantheon",
+            "id": "80",
+            "wins": 225,
+            "losses": 211,
+            "winrate": 51
+        },
+        {
+            "name": "Poppy",
+            "id": "78",
+            "wins": 147,
+            "losses": 154,
+            "winrate": 48
+        },
+        {
+            "name": "Pyke",
+            "id": "555",
+            "wins": 896,
+            "losses": 829,
+            "winrate": 51
+        },
+        {
+            "name": "Quinn",
+            "id": "133",
+            "wins": 121,
+            "losses": 128,
+            "winrate": 48
+        },
+        {
+            "name": "Rakan",
+            "id": "497",
+            "wins": 351,
+            "losses": 357,
+            "winrate": 49
+        },
+        {
+            "name": "Rammus",
+            "id": "33",
+            "wins": 313,
+            "losses": 290,
+            "winrate": 51
+        },
+        {
+            "name": "RekSai",
+            "id": "421",
+            "wins": 143,
+            "losses": 167,
+            "winrate": 46
+        },
+        {
+            "name": "Renekton",
+            "id": "58",
+            "wins": 411,
+            "losses": 372,
+            "winrate": 52
+        },
+        {
+            "name": "Rengar",
+            "id": "107",
+            "wins": 376,
+            "losses": 439,
+            "winrate": 46
+        },
+        {
+            "name": "Riven",
+            "id": "92",
+            "wins": 429,
+            "losses": 458,
+            "winrate": 48
+        },
+        {
+            "name": "Rumble",
+            "id": "68",
+            "wins": 98,
+            "losses": 120,
+            "winrate": 44
+        },
+        {
+            "name": "Ryze",
+            "id": "13",
+            "wins": 314,
+            "losses": 401,
+            "winrate": 43
+        },
+        {
+            "name": "Sejuani",
+            "id": "113",
+            "wins": 288,
+            "losses": 290,
+            "winrate": 49
+        },
+        {
+            "name": "Shaco",
+            "id": "35",
+            "wins": 314,
+            "losses": 298,
+            "winrate": 51
+        },
+        {
+            "name": "Shen",
+            "id": "98",
+            "wins": 222,
+            "losses": 214,
+            "winrate": 50
+        },
+        {
+            "name": "Shyvana",
+            "id": "102",
+            "wins": 174,
+            "losses": 163,
+            "winrate": 51
+        },
+        {
+            "name": "Singed",
+            "id": "27",
+            "wins": 112,
+            "losses": 122,
+            "winrate": 47
+        },
+        {
+            "name": "Sion",
+            "id": "14",
+            "wins": 136,
+            "losses": 137,
+            "winrate": 49
+        },
+        {
+            "name": "Sivir",
+            "id": "15",
+            "wins": 680,
+            "losses": 594,
+            "winrate": 53
+        },
+        {
+            "name": "Skarner",
+            "id": "72",
+            "wins": 77,
+            "losses": 74,
+            "winrate": 50
+        },
+        {
+            "name": "Sona",
+            "id": "37",
+            "wins": 419,
+            "losses": 364,
+            "winrate": 53
+        },
+        {
+            "name": "Soraka",
+            "id": "16",
+            "wins": 354,
+            "losses": 338,
+            "winrate": 51
+        },
+        {
+            "name": "Swain",
+            "id": "50",
+            "wins": 120,
+            "losses": 142,
+            "winrate": 45
+        },
+        {
+            "name": "Sylas",
+            "id": "517",
+            "wins": 619,
+            "losses": 670,
+            "winrate": 48
+        },
+        {
+            "name": "Syndra",
+            "id": "134",
+            "wins": 150,
+            "losses": 164,
+            "winrate": 47
+        },
+        {
+            "name": "TahmKench",
+            "id": "223",
+            "wins": 367,
+            "losses": 369,
+            "winrate": 49
+        },
+        {
+            "name": "Taliyah",
+            "id": "163",
+            "wins": 87,
+            "losses": 79,
+            "winrate": 52
+        },
+        {
+            "name": "Talon",
+            "id": "91",
+            "wins": 233,
+            "losses": 263,
+            "winrate": 46
+        },
+        {
+            "name": "Taric",
+            "id": "44",
+            "wins": 122,
+            "losses": 117,
+            "winrate": 51
+        },
+        {
+            "name": "Teemo",
+            "id": "17",
+            "wins": 559,
+            "losses": 506,
+            "winrate": 52
+        },
+        {
+            "name": "Thresh",
+            "id": "412",
+            "wins": 832,
+            "losses": 917,
+            "winrate": 47
+        },
+        {
+            "name": "Tristana",
+            "id": "18",
+            "wins": 599,
+            "losses": 634,
+            "winrate": 48
+        },
+        {
+            "name": "Trundle",
+            "id": "48",
+            "wins": 108,
+            "losses": 128,
+            "winrate": 45
+        },
+        {
+            "name": "Tryndamere",
+            "id": "23",
+            "wins": 384,
+            "losses": 345,
+            "winrate": 52
+        },
+        {
+            "name": "TwistedFate",
+            "id": "4",
+            "wins": 183,
+            "losses": 218,
+            "winrate": 45
+        },
+        {
+            "name": "Twitch",
+            "id": "29",
+            "wins": 382,
+            "losses": 413,
+            "winrate": 48
+        },
+        {
+            "name": "Udyr",
+            "id": "77",
+            "wins": 276,
+            "losses": 242,
+            "winrate": 53
+        },
+        {
+            "name": "Urgot",
+            "id": "6",
+            "wins": 348,
+            "losses": 357,
+            "winrate": 49
+        },
+        {
+            "name": "Varus",
+            "id": "110",
+            "wins": 226,
+            "losses": 280,
+            "winrate": 44
+        },
+        {
+            "name": "Vayne",
+            "id": "67",
+            "wins": 842,
+            "losses": 800,
+            "winrate": 51
+        },
+        {
+            "name": "Veigar",
+            "id": "45",
+            "wins": 567,
+            "losses": 524,
+            "winrate": 51
+        },
+        {
+            "name": "Velkoz",
+            "id": "161",
+            "wins": 393,
+            "losses": 369,
+            "winrate": 51
+        },
+        {
+            "name": "Vi",
+            "id": "254",
+            "wins": 439,
+            "losses": 337,
+            "winrate": 56
+        },
+        {
+            "name": "Viktor",
+            "id": "112",
+            "wins": 108,
+            "losses": 110,
+            "winrate": 49
+        },
+        {
+            "name": "Vladimir",
+            "id": "8",
+            "wins": 354,
+            "losses": 391,
+            "winrate": 47
+        },
+        {
+            "name": "Volibear",
+            "id": "106",
+            "wins": 281,
+            "losses": 230,
+            "winrate": 54
+        },
+        {
+            "name": "Warwick",
+            "id": "19",
+            "wins": 331,
+            "losses": 320,
+            "winrate": 50
+        },
+        {
+            "name": "Xayah",
+            "id": "498",
+            "wins": 453,
+            "losses": 411,
+            "winrate": 52
+        },
+        {
+            "name": "Xerath",
+            "id": "101",
+            "wins": 334,
+            "losses": 294,
+            "winrate": 53
+        },
+        {
+            "name": "XinZhao",
+            "id": "5",
+            "wins": 235,
+            "losses": 230,
+            "winrate": 50
+        },
+        {
+            "name": "Yasuo",
+            "id": "157",
+            "wins": 1057,
+            "losses": 1073,
+            "winrate": 49
+        },
+        {
+            "name": "Yorick",
+            "id": "83",
+            "wins": 190,
+            "losses": 168,
+            "winrate": 53
+        },
+        {
+            "name": "Yuumi",
+            "id": "350",
+            "wins": 831,
+            "losses": 945,
+            "winrate": 46
+        },
+        {
+            "name": "Zac",
+            "id": "154",
+            "wins": 160,
+            "losses": 171,
+            "winrate": 48
+        },
+        {
+            "name": "Zed",
+            "id": "238",
+            "wins": 718,
+            "losses": 711,
+            "winrate": 50
+        },
+        {
+            "name": "Ziggs",
+            "id": "115",
+            "wins": 156,
+            "losses": 134,
+            "winrate": 53
+        },
+        {
+            "name": "Zilean",
+            "id": "26",
+            "wins": 182,
+            "losses": 159,
+            "winrate": 53
+        },
+        {
+            "name": "Zoe",
+            "id": "142",
+            "wins": 224,
+            "losses": 243,
+            "winrate": 47
+        },
+        {
+            "name": "Zyra",
+            "id": "143",
+            "wins": 270,
+            "losses": 281,
+            "winrate": 49
+        }
+    ]
+}

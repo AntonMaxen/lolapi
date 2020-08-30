@@ -1,0 +1,12 @@
+{
+    "seedId": "mqpwUURC1ETqJvfWUDK7j3L0do8YHJbXgKDzMKUsW7sorP4",
+    "realm": "euw1",
+    "startIndex": 0,
+    "endIndex": 100,
+    "approvedQueues": [
+        400,
+        420,
+        430,
+        440
+    ]
+}

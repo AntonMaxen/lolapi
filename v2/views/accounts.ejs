@@ -1,0 +1,76 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="jumbotron padder">
+        <div class="row">
+            <div class="col-sm-3">
+                <h2 class=""><a href="/"><i class="material-icons">keyboard_backspace</i> Tillbaka</a></h2>
+            </div>
+            <div class="col-sm-6">
+                <h2 class="text-center">Sökning på: <strong><%= summonerName %></strong></h2>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">SummonerIcon</th>
+                <th class="text-center" scope="col">SummonerName</th>
+                <th class="text-center" scope="col">Realm</th>
+                <th class="text-center" scope="col">SummonerLevel</th>
+                <th class="text-center" scope="col">Profile</th>
+            </tr>
+        </thead>
+        <tbody class="load">
+            <tr>
+                <td class="text-center" colspan="5"><h1>loading...</h1></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var summonerName = "<%= summonerName %>";
+
+    var container = document.querySelector(".load");
+
+    var request = new XMLHttpRequest();
+    request.open('GET', `http://192.168.2.231:3000/search/${summonerName}/json`, true);
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            data = JSON.parse(this.response);
+            if(data.error) {
+                container.innerHTML = `<tr><td colspan="5"><h1 class="text-center">Hittade inget</h1></td></tr>`;
+            } else {
+                load(data, container);
+            }
+        } else {
+            container.innerHTML = `<tr><td colspan="5"><h1 class="text-center">Något gick fel</h1></td></tr>`;
+        }
+    }
+    request.send();
+
+    function load(data, container) {
+    var content = "";
+    data.accounts.forEach(function(account) {
+        content += `
+                <tr>
+                    <td class="text-center align-middle"><img width="80" height="80" src="http://ddragon.leagueoflegends.com/cdn/${data.version}/img/profileicon/${account.profileIconId}.png"></td>
+                    <td class="text-center align-middle"><h3>${account.name}</h3></td>
+                    <td class="text-center align-middle"><h3>${account.realm}</h3></td>
+                    <td class="text-center align-middle"><h3>${account.summonerLevel}</h3></td>
+                    <td class="align-middle text-center">
+                        <form class="" action="/summoner/${account.realm}/${account.name}" method="get">
+                            <button class="btn btn-info">Profile</button>
+                        </form>
+                    </td>
+                <tr>
+        `;
+    });
+    container.innerHTML = content;
+    console.log("Refreshed");
+}
+</script>
+
+<% include partials/footer %>

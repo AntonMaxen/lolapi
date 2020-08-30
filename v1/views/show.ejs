@@ -1,0 +1,138 @@
+<% include partials/header %>
+        <div class="container">
+            <div class="jumbotron padder">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h2 class=""><a href="/summoner/<%= matchInfo.accountData.realm %>/<%= matchInfo.accountData.name %>"><i class="material-icons">keyboard_backspace</i> Profil</a></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Salthistorik för: <strong><%= matchInfo.accountData.name %></strong>(<%= matchInfo.accountData.realm %>)</h2>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="text-center">SummonerLevel: <strong><%= matchInfo.accountData.summonerLevel %></strong></h4>
+                    </div>
+                </div>
+
+            </div>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Bild</th>
+                        <th class="text-center" scope="col">GameMode</th>
+                        <th class="text-center" scope="col">Build</th>
+                        <th class="text-center" scope="col">Stats</th>
+                        <th class="text-center" scope="col">MatchTid</th>
+                        <th class="text-center" scope="col">När</th>
+                        <th class="text-center" scope="col">Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% matchInfo.matchResults.forEach(function(match) { %>
+                    <tr class="<%= match.matchObj.result %>" data-toggle="collapse" data-target="#collapse<%= match.index %>">
+                        <th scope="row" class="align-middle text-center"><%= match.index + 1 %></th>
+
+                        <td class="align-middle text-center">
+                            <div class="">
+                                <img height="80" width="80" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/champion/<%= match.championObj.image.full%>">
+                            </div>
+
+                            <div class="spells">
+                                <div class="spell">
+                                    <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/spell/<%= match.summonerSpells.spellOne.image.full %>">
+                                </div>
+                                <div class="spell">
+                                    <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/spell/<%= match.summonerSpells.spellTwo.image.full %>">
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="align-middle text-center">
+                            <% if (gamemode[match.matchObj.gameInfo.queueId]) { %>
+                                <%= gamemode[match.matchObj.gameInfo.queueId] %>
+                            <% } else { %>
+                                Special Needs
+                            <% } %>
+                        </td>
+                        <td class="align-middle text-center">
+                            <!-- <div class="my-center-margin"> -->
+                                <div class="spells">
+                                    <% if(match.items.zero) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.zero.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                    <% if(match.items.one) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.one.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                    <% if(match.items.two) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.two.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                </div>
+                                <div class="spells">
+                                    <% if(match.items.three) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.three.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                    <% if(match.items.four) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.four.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                    <% if(match.items.five) { %>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/item/<%= match.items.five.image.full%>">
+
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <!-- </div> -->
+                        </td>
+                        <td class="align-middle text-center"><%= match.matchObj.stats.kills %>/<%= match.matchObj.stats.deaths %>/<%= match.matchObj.stats.assists %></td>
+                        <td class="align-middle text-center"><%= Math.round(match.matchObj.gameInfo.gameDuration / 60) %> min</td>
+                        <td class="align-middle text-center">
+                            <%= new Date(match.matchObj.gameInfo.gameCreation).toLocaleDateString("default", {day: 'numeric', month: 'short', year: 'numeric'}); %>
+                        </td>
+                        <td class="align-middle">
+                            <form class="" action="/match/<%= matchInfo.accountData.realm %>/<%= match.matchId %>" method="get">
+                                <input type="hidden" name="summonername" value="<%= matchInfo.accountData.name %>">
+                                <button class="btn btn-info">Mer info</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% if(typeof match.matchFrameData.skillOrder !== 'undefined') { %>
+                    <tr class="collapse <%= match.matchObj.result %>" id="collapse<%= match.index %>">
+                        <td colspan="6" class="text-center">
+                            <% match.matchFrameData.skillOrder.forEach(function(skill) { %>
+                                <%= skill.keyName.toUpperCase() %> <img width="35" height="35" src="http://ddragon.leagueoflegends.com/cdn/<%= match.version %>/img/spell/<%= skill.image %>" alt="">
+                            <% }); %>
+                        </td>
+                    </tr>
+                    <% } %>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            var championName = "<%= matchInfo.matchResults[0].championObj.id %>";
+            championName = championName.replace(" ", "");
+        </script>
+        <script type="text/javascript">
+            var url = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + championName +"_0.jpg"
+            document.body.style.backgroundImage = "url(" + url + ")";
+            console.log(url);
+        </script>
+<% include partials/footer %>

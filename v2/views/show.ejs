@@ -1,0 +1,166 @@
+<% include partials/header %>
+        <div class="container">
+            <div class="jumbotron padder">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h2 class=""><a href="/summoner/<%= realm %>/<%= summonerName %>"><i class="material-icons">keyboard_backspace</i> Profil</a></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Salthistorik för: <strong><%= summonerName %></strong>(<%= realm %>)</h2>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 load">
+
+                    </div>
+                </div>
+
+            </div>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Bild</th>
+                        <th class="text-center" scope="col">GameMode</th>
+                        <th class="text-center" scope="col">Build</th>
+                        <th class="text-center" scope="col">Stats</th>
+                        <th class="text-center" scope="col">MatchTid</th>
+                        <th class="text-center" scope="col">När</th>
+                        <th class="text-center" scope="col">Url</th>
+                    </tr>
+                </thead>
+                <tbody class="load">
+                    <tr>
+                        <td class="text-center" colspan="8"><h1>loading...</h1></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            var realm = "<%= realm %>";
+            var summonerName = "<%= summonerName %>";
+            var accountId = "<%= accountId %>"
+            var startIndex = "<%= startIndex %>";
+            var endIndex = "<%= endIndex %>";
+
+            var gamemode = {
+                0: "Custom Game",
+                76: "Rift URF",
+                325: "Rift AR",
+                400: "Normal(Draft Pick)",
+                420: "Ranked Solo/Duo",
+                430: "Normal(Blind Pick)",
+                440: "Ranked Flex",
+                450: "ARAM",
+                460: "3v3 Blind Pick",
+                470: "3v3 Ranked Flex",
+                800: "3v3 Bot Hard",
+                810: "3v3 Bot Easy",
+                820: "3v3 Bot Normal",
+                830: "5v5 Bot Easy",
+                840: "5v5 Bot Normal",
+                850: "5v5 Bot Hard",
+                900: "AR URF"
+            };
+
+            var container = document.querySelectorAll(".load");
+
+            var request = new XMLHttpRequest();
+            request.open('GET', `http://192.168.2.231:3000/summoner/${realm}/${summonerName}/matchhistory/json?accountid=${accountId}&startindex=${startIndex}&endindex=${endIndex}`, true);
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    data = JSON.parse(this.response);
+                    if(data.error) {
+                        container[1].innerHTML = `<tr><td class="text-center" colspan="8"><h1>Ingen Data</h1></td></tr>`;
+                    } else {
+                        container[0].innerHTML = `
+                            <h4 class="text-center">SummonerLevel: <strong>${data.accountData.summonerLevel}</strong></h4>
+                        `;
+                        load(data, container[1]);
+
+                        var championName = `${data.matchResults[0].championObj.id}`;
+                        championName = championName.replace(" ", "");
+                        var url = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + championName +"_0.jpg"
+                        document.body.style.backgroundImage = "url(" + url + ")";
+                        console.log(url);
+                    }
+                } else {
+                    container[1].innerHTML = `<tr><td class="text-center" colspan="8"><h1>Något gick fel...</h1></td></tr>`;
+                }
+            }
+            request.send();
+
+            function load(data, container) {
+            var defaultItem = "https://www.transparenttextures.com/patterns/debut-light.png";
+            var content = "";
+            data.matchResults.forEach(function(match) {
+                content += `
+                    <tr class="${match.matchObj.result}">
+                        <th scope="row" class="align-middle text-center">${ match.index + 1 }</th>
+
+                        <td class="align-middle text-center">
+                            <div class="">
+                                <img height="80" width="80" src="http://ddragon.leagueoflegends.com/cdn/${ match.version }/img/champion/${ match.championObj.image.full}">
+                            </div>
+
+                            <div class="spells">
+                                <div class="spell">
+                                    <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/${ match.version }/img/spell/${ match.summonerSpells.spellOne.image.full }">
+                                </div>
+                                <div class="spell">
+                                    <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/${ match.version }/img/spell/${ match.summonerSpells.spellTwo.image.full }">
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="align-middle text-center">
+                                ${ gamemode[match.matchObj.gameInfo.queueId] ? gamemode[match.matchObj.gameInfo.queueId] : "SpecialNeeds"}
+                        </td>
+                        <td class="align-middle text-center">
+                                <div class="spells">
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.zero ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.zero.image.full : defaultItem}">
+                                        </div>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.one ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.one.image.full : defaultItem}">
+
+                                        </div>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.two ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.two.image.full : defaultItem}">
+
+                                        </div>
+                                </div>
+                                <div class="spells">
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.three ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.three.image.full : defaultItem}">
+                                        </div>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.four ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.four.image.full : defaultItem}">
+
+                                        </div>
+                                        <div class="spell">
+                                            <img width="60" height="60" src="${match.items.five ? "http://ddragon.leagueoflegends.com/cdn/" + match.version + "/img/item/" + match.items.five.image.full : defaultItem}">
+                                        </div>
+                                </div>
+                        </td>
+                        <td class="align-middle text-center">${ match.matchObj.stats.kills }/${ match.matchObj.stats.deaths }/${ match.matchObj.stats.assists }</td>
+                        <td class="align-middle text-center">${ Math.round(match.matchObj.gameInfo.gameDuration / 60) } min</td>
+                        <td class="align-middle text-center">
+                            ${new Date(match.matchObj.gameInfo.gameCreation).toLocaleDateString("default", {day: 'numeric', month: 'short', year: 'numeric'})}
+                        </td>
+                        <td class="align-middle">
+                            <form class="" action="/match/${realm}/${match.matchId}" method="get">
+                                <input type="hidden" name="summonername" value="${summonerName}">
+                                <button class="btn btn-info">Mer info</button>
+                            </form>
+                        </td>
+                    </tr>
+                `;
+            });
+            container.innerHTML = content;
+            console.log("Refreshed");
+        }
+
+        </script>
+<% include partials/footer %>

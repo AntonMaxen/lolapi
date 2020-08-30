@@ -1,0 +1,177 @@
+<% include partials/header %>
+
+    <!-- <div class="container"> -->
+        <div class="jumbotron padder">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class=""><a href="/"><i class="material-icons">keyboard_backspace</i> Tillbaka</a></h2>
+                </div>
+                <div class="col-sm-6">
+                    <h2 class="text-center">MatchResultat för matchId: <strong><%= matchId %></strong></h2>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="text-center">
+                        Startat: <strong> <%= new Date(matchInfo.gameCreation).toLocaleDateString("default", {day: 'numeric', month: 'short', year: 'numeric'}); %></strong>
+                        &nbsp
+                        MatchTid: <strong> <%= Math.round(matchInfo.gameDuration / 60) %> min </strong>
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="text-center">
+                        GameMode:
+                        <strong>
+                            <% if (gamemode[matchInfo.queueId]) { %>
+                                <%= gamemode[matchInfo.queueId] %>
+                            <% } else { %>
+                                Special Needs
+                            <% } %>
+                        </strong>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+
+        <div class="row" style="margin:0;">
+            <% matchInfo.teams.forEach(function(team) { %>
+                <div class="col-sm-6">
+                    <table class="table table-dark table-hover <%= team.team.win %>">
+                        <thead>
+                            <tr>
+                                <th class="text-center" scope="col">Bild</th>
+                                <th class="" scope="col">Name</th>
+                                <th class="" scope="col">Build</th>
+                                <th class="text-center" scope="col">Stats</th>
+                            </tr>
+                        </thead>
+                        <% team.participants.forEach(function(participant) { %>
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <div class="">
+                                        <img height="80" width="80" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/champion/<%=participant.champion.image.full%>">
+                                    </div>
+
+                                    <div class="spells">
+                                        <div class="spell">
+                                            <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/spell/<%= participant.summonerSpells.spellOne.image.full %>">
+                                        </div>
+                                        <div class="spell">
+                                            <img width="40" height="40" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/spell/<%= participant.summonerSpells.spellTwo.image.full %>">
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td class="align-middle">
+                                    <form action="/summoner/<%= realm %>/<%= participant.player.summonerName %>" method="get">
+                                        <input type="hidden" name="accountid" value="<%= participant.player.currentAccountId %>">
+                                        <button class="btn btn-link text-light"><%= participant.player.summonerName %></button>
+                                    </form>
+                                </td>
+                                <td class="align-middle">
+                                        <div class="spells">
+                                            <% if(participant.items.zero) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.zero.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                            <% if(participant.items.one) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.one.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                            <% if(participant.items.two) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.two.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                        <div class="spells">
+                                            <% if(participant.items.three) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.three.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                            <% if(participant.items.four) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.four.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                            <% if(participant.items.five) { %>
+                                                <div class="spell">
+                                                    <img width="60" height="60" src="http://ddragon.leagueoflegends.com/cdn/<%= participant.champion.version %>/img/item/<%= participant.items.five.image.full%>">
+
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                </td>
+                                <td class="align-middle text-center"><h4><%= participant.stats.kills %>/<%= participant.stats.deaths %>/<%= participant.stats.assists %></h4></td>
+                            </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            <% }); %>
+        </div>
+
+        <div class="jumbotron padder">
+            <h1 class="text-center">Match Data </h1>
+        </div>
+
+        <div class="container">
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12">
+                    <div id="goldChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12">
+                    <div id="minionChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12">
+                    <div id="jungleMinionChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12">
+                    <div id="experienceChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12">
+                    <div id="levelChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            var matchId = "<%= matchId %>";
+            var realm = "<%= realm %>";
+        </script>
+        <script type="text/javascript" src="/matchgraph.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+        <script type="text/javascript">
+            var summonerName = "<%= summonerName %>";
+            var buttonElements = document.querySelectorAll("button");
+            buttonElements.forEach(function(element) {
+                if(element.innerText.toLowerCase() == summonerName) {
+                    element.classList.remove("text-light");
+                    element.style.color = "yellow";
+                }
+            });
+        </script>
+
+<% include partials/footer %>
